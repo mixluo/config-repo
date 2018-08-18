@@ -14,7 +14,7 @@ zuul:
   routes:
     # /myProduct/product/list ->路由到 product服务的 list请求
     aaaaaa:
-      path: /myProducts/**
+      path: /myProduct/**
       serviceId: product
       sensitiveHeaders:
     #简洁写法
