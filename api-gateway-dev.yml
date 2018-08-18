@@ -5,3 +5,15 @@ eureka:
   instance:
         prefer-ip-address: true
         instance-id: ${spring.cloud.client.ip-address}:${server.port}
+zuul:
+  routes:
+    # /myProduct/product/list ->路由到 product服务的 list请求
+    aaaaaa:
+      path: /myProduct/**
+      serviceId: product
+      sensitiveHeaders:
+    #简洁写法
+    #product: /myProduct/**
+  #例如下面的请求是供服务间调用，不需要暴露给外部，所以禁止路由的请求，正则匹配
+  ignored-patterns:
+    - /**/product/listForOrder
