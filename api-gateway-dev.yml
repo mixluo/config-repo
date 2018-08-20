@@ -11,6 +11,8 @@ eureka:
         prefer-ip-address: true
         instance-id: ${spring.cloud.client.ip-address}:${server.port}
 zuul:
+  #全部服务忽略敏感头（全部服务都可以传递cookie）
+  sensitive-headers:
   routes:
     # /myProduct/product/list ->路由到 product服务的 list请求
     aaaaaa:
